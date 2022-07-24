@@ -80,11 +80,11 @@ class Settings():
 
     async def format(self):
         embed = discord.Embed(
-            title="Settings", description=self.guild.name, color=config.EMBED_COLOR)
+            title="Ustawienia", description=self.guild.name, color=config.EMBED_COLOR)
 
         embed.set_thumbnail(url=self.guild.icon_url)
         embed.set_footer(
-            text="Usage: {}set setting_name value".format(config.BOT_PREFIX))
+            text="Użycie: {}set nazwa_ustawienia wartość".format(config.BOT_PREFIX))
 
         exclusion_keys = ['id']
 
@@ -159,14 +159,14 @@ class Settings():
             return
 
         if len(value) > 32:
-            await ctx.send("`Error: Nickname exceeds character limit`\nUsage: {}set {} nickname\nOther options: unset".format(config.BOT_PREFIX, setting))
+            await ctx.send("`Proszę cię uczciwie ogranicz liczbę znaków`\nUżycie: {}set {} nickname\nChyba, że nie chcesz: unset".format(config.BOT_PREFIX, setting))
             return False
         else:
             self.config[setting] = value
             try:
                 await self.guild.me.edit(nick=value)
             except:
-                await ctx.send("`Error: Cannot set nickname. Please check bot permissions.")
+                await ctx.send("`bot nie ma uprawnienia do zmiany nicku")
 
 
     async def command_channel(self, setting, value, ctx):
@@ -238,7 +238,7 @@ class Settings():
     async def vc_timeout(self, setting, value, ctx):
 
         if config.ALLOW_VC_TIMEOUT_EDIT == False:
-            await ctx.send("`Error: This value cannot be modified".format(config.BOT_PREFIX, setting))
+            await ctx.send("`Nie można tego zmienić".format(config.BOT_PREFIX, setting))
 
         if value.lower() == "true":
             self.config[setting] = True
@@ -246,5 +246,5 @@ class Settings():
         elif value.lower() == "false":
             self.config[setting] = False
         else:
-            await ctx.send("`Error: Value must be True/False`\nUsage: {}set {} True/False".format(config.BOT_PREFIX, setting))
+            await ctx.send("`Wartość musi być True/False`\nUsage: {}set {} True/False".format(config.BOT_PREFIX, setting))
             return False

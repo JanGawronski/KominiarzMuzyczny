@@ -5,3 +5,8 @@ aiohttp
 asyncio
 beautifulsoup4
 spotipy
+sys
+os
+ngrok-api
+mcipc.query
+win10toast

@@ -1,18 +1,19 @@
-BOT_TOKEN: str = ""
-SPOTIFY_ID: str = ""
-SPOTIFY_SECRET: str = ""
+BOT_TOKEN: str = "ODg4NDcxMTc4NDA5MzA0MDk0.GYqb0E.3SIA104ofsKAkcHTZ9CQVYVl5s_iOzL5zPaN-s"
+SPOTIFY_ID: str = "01f52e9b8c284885a43f19fd32a6b142"
+SPOTIFY_SECRET: str = "cfe0e1c3655541699275f687f51f26b7"
+NGROK_API: str = "2COHf2yAf14EgTWQd8nEnspOi0q_7QxgrMa97tq9fB8cfN9rZ"
 
-BOT_PREFIX = "$"
+BOT_PREFIX = "-"
 
 EMBED_COLOR = 0x4dd4d0  #replace after'0x' with desired hex code ex. '#ff0188' >> '0xff0188'
 
 SUPPORTED_EXTENSIONS = ('.webm', '.mp4', '.mp3', '.avi', '.wav', '.m4v', '.ogg', '.mov')
 
-MAX_SONG_PRELOAD = 5  #maximum of 25
+MAX_SONG_PRELOAD = 25  #maximum of 25
 
 COOKIE_PATH = "/config/cookies/cookies.txt"
 
-GLOBAL_DISABLE_AUTOJOIN_VC = False
+GLOBAL_DISABLE_AUTOJOIN_VC = True
 
 VC_TIMEOUT = 600 #seconds
 VC_TIMOUT_DEFAULT = True  #default template setting for VC timeout true= yes, timeout false= no timeout
@@ -22,74 +23,87 @@ ALLOW_VC_TIMEOUT_EDIT = True  #allow or disallow editing the vc_timeout guild se
 STARTUP_MESSAGE = "Starting Bot..."
 STARTUP_COMPLETE_MESSAGE = "Startup Complete"
 
-NO_GUILD_MESSAGE = 'Error: Please join a voice channel or enter the command in guild chat'
-USER_NOT_IN_VC_MESSAGE = "Error: Please join the active voice channel to use commands"
-WRONG_CHANNEL_MESSAGE = "Error: Please use configured command channel"
-NOT_CONNECTED_MESSAGE = "Error: Bot not connected to any voice channel"
-ALREADY_CONNECTED_MESSAGE = "Error: Already connected to a voice channel"
-CHANNEL_NOT_FOUND_MESSAGE = "Error: Could not find channel"
-DEFAULT_CHANNEL_JOIN_FAILED = "Error: Could not join the default voice channel"
-INVALID_INVITE_MESSAGE = "Error: Invalid invitation link"
+NO_GUILD_MESSAGE = 'Dołącz na kanał głosowy lub pisz na czacie serwerowym'
+USER_NOT_IN_VC_MESSAGE = "Dołącz na kanał głosowy"
+WRONG_CHANNEL_MESSAGE = "Nieprawidłowy kanał głosowy"
+NOT_CONNECTED_MESSAGE = "Bot nie jest na kanale głosowym"
+ALREADY_CONNECTED_MESSAGE = "Bot już jest na kanale głosowym"
+CHANNEL_NOT_FOUND_MESSAGE = "Nie można znaleźć kanału"
+DEFAULT_CHANNEL_JOIN_FAILED = "Nie można dołączyć do domyślnego kanału"
+INVALID_INVITE_MESSAGE = "Nieprawidłowe zaproszenie"
 
-ADD_MESSAGE= "To add this bot to your own Server, click [here]" #brackets will be the link text
+ADD_MESSAGE= "Żeby dodać bota kliknij [tutaj]" #brackets will be the link text
 
-INFO_HISTORY_TITLE = "Songs Played:"
+INFO_HISTORY_TITLE = "Zagrane utwory:"
 MAX_HISTORY_LENGTH = 10
 MAX_TRACKNAME_HISTORY_LENGTH = 15
 
-SONGINFO_UPLOADER = "Uploader: "
-SONGINFO_DURATION = "Duration: "
+SONGINFO_UPLOADER = "Chłop co to wrzucił: "
+SONGINFO_DURATION = "Długość (jak pały): "
 SONGINFO_SECONDS = "s"
-SONGINFO_LIKES = "Likes: "
-SONGINFO_DISLIKES = "Dislikes: "
-SONGINFO_NOW_PLAYING = "Now Playing"
-SONGINFO_QUEUE_ADDED = "Added to queue"
-SONGINFO_SONGINFO = "Song info"
-SONGINFO_ERROR = "Error: Unsupported site or age restricted content. To enable age restricted content check the documentation/wiki."
-SONGINFO_PLAYLIST_QUEUED = "Queued playlist :page_with_curl:"
-SONGINFO_UNKNOWN_DURATION = "Unknown"
+SONGINFO_LIKES = "Polubienia: "
+SONGINFO_DISLIKES = "Niepodobania: "
+SONGINFO_NOW_PLAYING = "Teraz leci"
+SONGINFO_QUEUE_ADDED = "Dodano do kolejki wariacie"
+SONGINFO_SONGINFO = "Info o utworze"
+SONGINFO_ERROR = "Niewspierana strona albo utwór +18"
+SONGINFO_PLAYLIST_QUEUED = "Grajlista zakolejkowana"
+SONGINFO_UNKNOWN_DURATION = "Pieron wie"
 
-HELP_ADDBOT_SHORT = "Add Bot to another server"
-HELP_ADDBOT_LONG = "Gives you the link for adding this bot to another server of yours."
-HELP_CONNECT_SHORT = "Connect bot to voicechannel"
-HELP_CONNECT_LONG = "Connects the bot to the voice channel you are currently in"
-HELP_DISCONNECT_SHORT = "Disonnect bot from voicechannel"
-HELP_DISCONNECT_LONG = "Disconnect the bot from the voice channel and stop audio."
+HELP_ADDBOT_SHORT = "Dodaje bota na inny serwer"
+HELP_ADDBOT_LONG = "Daje link służący do dodanie bota na inny serwer"
+HELP_CONNECT_SHORT = "Dołącza bota do kanału"
+HELP_CONNECT_LONG = "Dołącza bota do kanału na którym jesteś"
+HELP_DISCONNECT_SHORT = "Rozłącza bota z kanału głosowego"
+HELP_DISCONNECT_LONG = "Rozłącza bota z kanału głosowego i zatrzymuje audio"
 
-HELP_SETTINGS_SHORT = "View and set bot settings"
-HELP_SETTINGS_LONG = "View and set bot settings in the server. Usage: {}settings setting_name value".format(BOT_PREFIX)
+HELP_SETTINGS_SHORT = "Pokazuje i pozwala na zmianę ustawień"
+HELP_SETTINGS_LONG = "Pokazuje i pozwala na zmianę ustawień bota na serwerze. Użycie {}settings nazwa_ustawienia wartość".format(BOT_PREFIX)
 
-HELP_HISTORY_SHORT = "Show history of songs"
-HELP_HISTORY_LONG = "Shows the " + str(MAX_TRACKNAME_HISTORY_LENGTH) + " last played songs."
-HELP_PAUSE_SHORT = "Pause Music"
-HELP_PAUSE_LONG = "Pauses the AudioPlayer. Playback can be continued with the resume command."
-HELP_VOL_SHORT = "Change volume %"
-HELP_VOL_LONG = "Changes the volume of the AudioPlayer. Argument specifies the % to which the volume should be set."
-HELP_PREV_SHORT = "Go back one Song"
-HELP_PREV_LONG = "Plays the previous song again."
-HELP_RESUME_SHORT = "Resume Music"
-HELP_RESUME_LONG = "Resumes the AudioPlayer."
-HELP_SKIP_SHORT = "Skip a song"
-HELP_SKIP_LONG = "Skips the currently playing song and goes to the next item in the queue."
-HELP_SONGINFO_SHORT = "Info about current Song"
-HELP_SONGINFO_LONG = "Shows details about the song currently being played and posts a link to the song."
-HELP_STOP_SHORT = "Stop Music"
-HELP_STOP_LONG = "Stops the AudioPlayer and clears the songqueue"
-HELP_MOVE_LONG = f"{BOT_PREFIX}move [position] [new position]"
-HELP_MOVE_SHORT = 'Moves a track in the queue'
-HELP_YT_SHORT = "Play a supported link or search on youtube"
-HELP_YT_LONG = ("$p [link/video title/key words/playlist-link/soundcloud link/spotify link/bandcamp link/twitter link]")
+HELP_HISTORY_SHORT = "Pokazuje historie utworów"
+HELP_HISTORY_LONG = "Pokazuje " + str(MAX_TRACKNAME_HISTORY_LENGTH) + " ostatnich utworów"
+HELP_PAUSE_SHORT = "Zatrzymuje odtwarzanie muzyki"
+HELP_PAUSE_LONG = "Zatrzymuje odtwarzanie muzyki. Może być ono wznowione użyciem komendy wznawiającej \"-wznów\""
+HELP_VOL_SHORT = "Zmienia procent głośności"
+HELP_VOL_LONG = "Zmienia głośność odtwarzanie muzyki. Podana liczba (w zakresie od 1 do 100) określa procent głośności muzyki"
+HELP_PREV_SHORT = "Wraca do poprzedniego utworu"
+HELP_PREV_LONG = "Odtwarza ponownie poprzedni utwór"
+HELP_RESUME_SHORT = "Wznawia odtwarzanie"
+HELP_RESUME_LONG = "Wznawia odtwarzanie utworu wcześniej wstrzymanego komendą wstrzymującą \"-pauza\""
+HELP_SKIP_SHORT = "Pomija utwór"
+HELP_SKIP_LONG = "Pomija obecnie odtwarzany utwór i przechodzi do kolejnego"
+HELP_SONGINFO_SHORT = "Info o obecnie granym utworze"
+HELP_SONGINFO_LONG = "Pokazuje szczegółowe informacje o utworze i pokazuje do niego link"
+HELP_STOP_SHORT = "Zatrzymuje muzykę"
+HELP_STOP_LONG = "Zatrzymuje odtwarzanie utworu i czyści kolejkę"
+HELP_MOVE_LONG = f"{BOT_PREFIX}przesuń [pozycja] [nowa pozycja]"
+HELP_MOVE_SHORT = "Przesuwa utwór w kolejce"
+HELP_YT_SHORT = "Gra wspierany plik na TwojejTubie"
+HELP_YT_LONG = ("-g [link/tytuł utworu/słowa kluczowe/link do grajlisty/link do soundclouda/link do spotify/link do bandcampa/link do twittera]")
 HELP_PING_SHORT = "Pong"
-HELP_PING_LONG = "Test bot response status"
-HELP_CLEAR_SHORT = "Clear the queue."
-HELP_CLEAR_LONG = "Clears the queue and skips the current song."
-HELP_LOOP_SHORT = "Loops the currently playing song, toggle on/off."
-HELP_LOOP_LONG = "Loops the currently playing song and locks the queue. Use the command again to disable loop."
-HELP_QUEUE_SHORT = "Shows the songs in queue."
-HELP_QUEUE_LONG = "Shows the number of songs in queue, up to 10."
-HELP_SHUFFLE_SHORT = "Shuffle the queue"
-HELP_SHUFFLE_LONG = "Randomly sort the songs in the current queue"
-HELP_CHANGECHANNEL_SHORT = "Change the bot channel"
-HELP_CHANGECHANNEL_LONG = "Change the bot channel to the VC you are in"
+HELP_PING_LONG = "Sprawdza czy bot odpowiada"
+HELP_CLEAR_SHORT = "Czyści kolejkę"
+HELP_CLEAR_LONG = "Czyści kolejkę i pomija obecnie grający utwór"
+HELP_LOOP_SHORT = "Zapętla obecnie grany utwór. Zmień włącz/wyłącz"
+HELP_LOOP_LONG = "Zapętla obecnie grany utwór i zatrzymuje kolejkę. Użyj ponownie, aby wyłączyć pętlę"
+HELP_QUEUE_SHORT = "Pokazuje utwory w kolejce"
+HELP_QUEUE_LONG = "Pokazuje do 10 utworów w kolejce"
+HELP_SHUFFLE_SHORT = "Przetasowuje kolejkę"
+HELP_SHUFFLE_LONG = "Losowo sortuje utwory piosenkę"
+HELP_CHANGECHANNEL_SHORT = "Zmiena kanał bota"
+HELP_CHANGECHANNEL_LONG = "Zmienia kanał bota na kanał głosowy na którym ty jesteś"
+
+HELP_SERVERMINECRAFT_SHORT = "Uruchamia minecraft serwer"
+HELP_SERVERMINECRAFT_LONG = "Uruchamia jeden z dostępnych serwerów w minecraft"
+HELP_SHOWSERVERLISTMINECRAFT_SHORT = "Pokazuje listę serwerów"
+HELP_SHOWSERVERLISTMINECRAFT_LONG = "Pokazuje listę dostępnych serwerów w minecraft"
+HELP_SHOWSERVERIPMINECRAFT_SHORT = "Pokazuje IP serwera minecraft"
+HELP_SHOWSERVERIPMINECRAFT_LONG = "Pokazuje IP obecnie działającego serwera w minecraft"
+HELP_TURNOFFMINECRAFTSERVER_SHORT = "Wyłącza serwer w minecraft"
+HELP_TURNOFFMINECRAFTSERVER_LONG = "Wyłącza obecnie działający serwer w minecraft"
+HELP_CONVERSATION_SHORT = "Uruchamia konwersację"
+HELP_CONVERSATION_LONG = "Uruchamia konwersację z botem"
+
+SERVERS = ['SkyFactoryOne', 'Serwer1.19', 'ATM7', 'medev']
 
 ABSOLUTE_PATH = '' #do not modify
