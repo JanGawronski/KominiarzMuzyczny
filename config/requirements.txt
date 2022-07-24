@@ -3,10 +3,10 @@ py-cord[voice]
 yt-dlp
 aiohttp
 asyncio
-beautifulsoup4
+bs4
 spotipy
 sys
 os
 ngrok-api
-mcipc.query
+mcipc
 win10toast

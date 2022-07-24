@@ -118,13 +118,13 @@ class General(commands.Cog):
         if config.LAUNCHINGSERVERENABLED is True:
             if IsMinecraftServerOnline() is False:
                 if file in config.SERVERS:
-                    os.startfile("shortcuts\\"+file+".lnk")
+                    os.startfile("shortcuts\\{}.lnk".format(file))
                     os.startfile("shortcuts\\MinecraftServer.bat")
                     await ctx.send("Serwer się uruchamia. Sprawdź IP serwera komendą -serverip")
-                    print("Minecraft server "+file+" started")
+                    print("Minecraft server {} started".format(file))
                 else:
                     await ctx.send("Nie znaleziono takiego serwera")
-                    print("Minecraft server "+file+" not found")
+                    print("Minecraft server {} not found".format(file))
             else:
                     for i in ng.endpoints.list():
                         await ctx.send('Serwer jest już włączony i dostępny pod adresem '+i.hostport)
@@ -156,7 +156,7 @@ class General(commands.Cog):
         "KominiarzMuzyczny",
         "Została rozpoczęta konwersacja na "+ctx.message.guild.name,
         duration = 20,
-        icon_path = ".../Matirak.ico",
+        icon_path = "Matirak.ico",
         threaded = True,
         )
         global context
