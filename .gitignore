@@ -1,4 +1,4 @@
-__pycache__
+__pycache__/
 discord.log
 run.sh
 cookies.txt
@@ -7,4 +7,5 @@ bin/
 share/
 include/
 lib/
-pyenv.cfg
+lib64/
+pyvenv.cfg
