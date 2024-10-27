@@ -1,0 +1,10 @@
+__pycache__
+discord.log
+run.sh
+cookies.txt
+test.py
+bin/
+share/
+include/
+lib/
+pyenv.cfg
