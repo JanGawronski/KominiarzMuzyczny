@@ -43,6 +43,16 @@ class Playlist():
             if len(self.playlist) > 2 and self.playlist[0] == self.playlist[2]:
                 self.history.pop(0)
             self.playlist.pop(0)
+        
+        else:
+            if self.history[0]["title"] != self.playlist[0]["title"]:
+                if len(self.history) >= config.MAX_HISTORY_LENGTH and config.MAX_HISTORY_LENGTH != -1:
+                    self.history.pop()
+
+                self.history.insert(0, self.playlist[0])
+                if len(self.playlist) > 2 and self.playlist[0] == self.playlist[2]:
+                    self.history.pop(0)
+                self.playlist.pop(0)
 
 
     def previous(self):

@@ -1,8 +1,7 @@
 import discord
 import config
-import os
 
-bot = discord.Bot(debug_guilds=[815636458177691679], intents=discord.Intents.default())
+bot = discord.Bot(intents=discord.Intents.default())
 
 
 @bot.event

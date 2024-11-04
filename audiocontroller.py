@@ -50,10 +50,10 @@ class AudioCotroller:
 
     async def connect(self, user):
         if self.guild.voice_client is None:
-                if user.voice is not None:
-                    await user.voice.channel.connect()
-                else:
-                    raise Exception
+            if user.voice is not None:
+                await user.voice.channel.connect()
+            else:
+                raise Exception
 
 
 
@@ -127,9 +127,10 @@ class AudioCotroller:
         elif self.playlist.playlist[0]["uploader"] is not None:
             embed.add_field(name = config.UPLOADER_EMBED_STRING , value = self.playlist.playlist[0]["uploader"], inline = True)
         
-        embed.add_field(name = config.QUEUE_LENGTH_EMBED_STRING, value = len(self.playlist.playlist) - 1, inline = True)
+        if len(self.playlist.playlist) - 1 > 0:
+            embed.add_field(name = config.QUEUE_LENGTH_EMBED_STRING, value = len(self.playlist.playlist) - 1, inline = True)
 
-        if self.playlist.playlist[0]["is_live"] == True:
+        if self.playlist.playlist[0]["is_live"]:
             embed.add_field(name = config.DURATION_EMBED_STRING, value = config.IS_LIVE_EMBED_VALUE, inline = True)
         elif self.playlist.playlist[0]["long_string_duration"] is not None:
             embed.add_field(name = config.DURATION_EMBED_STRING, value = self.playlist.playlist[0]["long_string_duration"] , inline = True)
@@ -284,7 +285,7 @@ class AudioCotroller:
 
 
         
-        if song_info.get("is_live") != True:
+        if not song_info.get("is_live"):
             try:
                 song_info["short_url"] = urlshortener.tinyurl.short(song_info.get("url"))
             except:
@@ -306,7 +307,7 @@ class AudioCotroller:
         song["webpage_url"] = song_info.get("webpage_url")
         song["short_url"] = song_info["short_url"]
 
-        if to_return == True:
+        if to_return:
             return song
 
         self.playlist.add(song)
@@ -314,7 +315,7 @@ class AudioCotroller:
 
     def process_playlist(self, songs, is_spotify):
 
-        if is_spotify == True:
+        if is_spotify:
 
             for song in songs:
                 
@@ -347,8 +348,8 @@ class AudioCotroller:
         if self.guild.voice_client is None:
             return
 
-        if self.guild.voice_client.is_playing() == True:
-            if self.playlist.loop == True:
+        if self.guild.voice_client.is_playing():
+            if self.playlist.loop:
                 self.playlist.loop == "Skip, but still True"
 
             self.guild.voice_client.stop()
@@ -376,15 +377,11 @@ class AudioCotroller:
     
 
     async def previous(self, ctx):
-
         self.playlist.previous()
         if self.guild.voice_client is None:
-            
-            
             await self.connect(ctx.user)
             await self.play_audiosource(ctx)
         else:
-
             self.next(ctx)
 
 
